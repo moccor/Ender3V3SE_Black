@@ -1,0 +1,4 @@
+Connect to Pi via SSH
+Go to /home/pi/klipper/klippy/extras
+Edit " firmware_retraction.py " with Notepad++
+Change lines 13 and 40 to negative vlues (ex. -1)

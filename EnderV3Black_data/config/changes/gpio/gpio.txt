@@ -1,0 +1,72 @@
+################### GPIO PINS ###################
+# Enclosure Lighting
+[output_pin rearLED]
+pin: rpi:gpio14
+pwm: false
+shutdown_value: 1
+value: 0
+
+[output_pin topLED]
+pin: rpi:gpio23
+pwm: false
+shutdown_value: 1
+value: 0
+
+[output_pin exhaustFan]
+pin: rpi:gpio18
+pwm: false
+shutdown_value: 0
+value: 1
+
+################ Lighting Controls ################
+#Rear LED
+[gcode_macro rear_led_off]
+gcode:
+    SET_PIN PIN=rearLED VALUE=0
+ 
+[gcode_macro rear_led_on]
+gcode:
+    SET_PIN PIN=rearLED VALUE=1
+ 
+[gcode_macro rear_led_toggle]
+gcode:
+    {% if printer["output_pin rearLED"].value == 1 %}
+        rear_led_off
+    {% else %}
+        rear_led_on
+    {% endif %}
+
+#Top LED
+[gcode_macro top_led_off]
+gcode:
+    SET_PIN PIN=topLED VALUE=0
+ 
+[gcode_macro top_led_on]
+gcode:
+    SET_PIN PIN=topLED VALUE=1
+ 
+[gcode_macro top_led_toggle]
+gcode:
+    {% if printer["output_pin topLED"].value == 1 %}
+        top_led_off
+    {% else %}
+        top_led_on
+    {% endif %}
+
+################## Fan Controls ##################
+#Exhaust Fan
+[gcode_macro exhaust_fan_off]
+gcode:
+    SET_PIN PIN=exhaustFan VALUE=1
+ 
+[gcode_macro exhaust_fan_on]
+gcode:
+    SET_PIN PIN=exhaustFan VALUE=0
+ 
+[gcode_macro exhaust_fan_toggle]
+gcode:
+    {% if printer["output_pin exhaustFan"].value == 0 %}
+        exhaust_fan_off
+    {% else %}
+        exhaust_fan_on
+    {% endif %}

@@ -1,0 +1,3 @@
+Search "Enables device power control. Multiple "power" devices may be configured, each with their own section"
+
+https://github.com/Arksine/moonraker/blob/master/docs/configuration.md#power

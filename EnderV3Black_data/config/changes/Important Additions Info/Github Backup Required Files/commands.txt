@@ -1,0 +1,11 @@
+git config --global user.name "moccor"
+
+git config --global user.email "xxxxxxxxx@gmail.com"
+
+git remote add origin https://TOKEN@github.com/moccor/A30T-Klipper-Backup
+
+git remote set-url origin https://github.com/moccor/A30T-Klipper-Backup
+
+git push -u origin master
+
+git pull https://github.com/moccor/A30T-Klipper-Backup
